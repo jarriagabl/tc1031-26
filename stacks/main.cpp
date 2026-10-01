@@ -1,6 +1,6 @@
 #include <iostream>
 #include "ArrayStack.h"
-//#include "LinkedStack.h"
+#include "LinkedStack.h"
 
 using std::cout;
 
@@ -21,8 +21,7 @@ void test_array_stack(int capacity)
     }
 }
 
-/**
- * void test_linked_stack(int max)
+void test_linked_stack(int max)
 {
     cout << "\n\n--Testing LinkedStack with " << max << " values--\n\n";
     LinkedStack<int> s{};
@@ -37,11 +36,11 @@ void test_array_stack(int capacity)
     {
         cout << "Popping from stack: " << s.pop() << "\n";
     }
-} **/
+}
 
 int main()
 {
-    test_array_stack(10);
-    //test_linked_stack(20);
+    //test_array_stack(10);
+    test_linked_stack(20);
     return 0;
 }

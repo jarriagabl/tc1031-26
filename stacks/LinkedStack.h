@@ -23,6 +23,39 @@ public:
         ++num_elements;
     }
 
+    T peek()
+    {
+        return top->data;
+    }
+
+    T pop()
+    {
+        T to_return{top->data};
+        Node<T> *to_delete{top};
+        top = to_delete->next;
+        delete to_delete;
+        --num_elements;
+        return to_return;
+    }
+
+    int size()
+    {
+        return num_elements;
+    }
+
+    bool is_empty()
+    {
+        return num_elements == 0;
+    }
+
+    ~LinkedStack()
+    {
+        while(!is_empty())
+        {
+            pop();
+        }
+    }
+
 };
 
 #endif
