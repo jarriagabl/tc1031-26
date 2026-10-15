@@ -37,10 +37,16 @@ public:
 
     T dequeue()
     {
-        //TODO Implementar dequeue
-        // La estrategia es muy similar a LinkedStack (mismos pasos)
-        // Considera: ¿que pasa con back cuando la fila queda vacia?
-        // ¿Es necesario hacer algo adicional?
+        Node<T> *to_delete{front};
+        T to_return{front->data};
+        front = front->next;
+        delete to_delete;
+        --num_elements;
+        if(is_empty())
+        {
+            back = nullptr;
+        }
+        return to_return;
     }
 
     bool is_empty()
