@@ -21,7 +21,7 @@ int main()
         cout << "add(" << v[i] << "): ";
         tree.add(v[i]);
         // Apply print function to tree's nodes inorder
-        //tree.inorder(f);
+        tree.inorder(f);
         cout << "\n";
     }
 
@@ -33,12 +33,12 @@ int main()
     // Remove
     cout << "remove(8): ";
     tree.remove(8);
-    //tree.inorder(f);
+    tree.inorder(f);
     cout << "\n";
     
     cout << "remove(7): ";
     tree.remove(7);
-    //tree.inorder(f);
+    tree.inorder(f);
     cout << "\n";
 
     cout << "contains(8): " << tree.contains(8) << "\n"; // True

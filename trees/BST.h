@@ -92,6 +92,27 @@ private:
         return current;
     }
 
+    template <typename F>
+    void inorder(F &fun, TreeNode<T> *current)
+    {
+        if(current)
+        {
+            inorder(fun, current->left);
+            fun(current->data);
+            inorder(fun, current->right);
+        }
+    }
+
+    void clear(TreeNode<T> *current)
+    {
+        if(current)
+        {
+            clear(current->left);
+            clear(current->right);
+            delete current;
+        }
+    }
+
 public:
     BST(): root{nullptr}, num_elements{0}
     {
@@ -114,6 +135,28 @@ public:
     void remove(T element)
     {
         root = remove(element, root);
+    }
+
+    int size()
+    {
+        return num_elements;
+    }
+
+    template<typename F>
+    void inorder(F &fun)
+    {
+        inorder(fun, root);
+    }
+
+    void clear()
+    {
+        clear(root);
+        num_elements = 0;
+    }
+
+    ~BST()
+    {
+        clear();
     }
 
     /**
